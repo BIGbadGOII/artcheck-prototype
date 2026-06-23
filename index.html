@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>观前卡 | 青年艺术作品购买前判断</title>
-    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%231a1209"/><text x="32" y="43" text-anchor="middle" font-size="34" fill="%23fbf7ee">观</text></svg>' />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%231a1209"/><text x="32" y="43" text-anchor="middle" font-size="34" fill="%23fbf7ee">观</text></svg>'>
+    <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
     <a class="skip-link" href="#main-content">跳到主要内容</a>
@@ -52,8 +52,8 @@
               </p>
             </div>
 
-            <div class="art-wall" aria-label="样例作品预览">
-              <canvas id="artCanvas" width="520" height="640" aria-label="生成的抽象作品样张"></canvas>
+            <div class="art-wall" role="group" aria-label="样例作品预览">
+              <canvas id="artCanvas" width="520" height="640" role="img" aria-label="生成的抽象作品样张"></canvas>
               <div class="art-label">
                 <span>样例对象</span>
                 <strong>《未命名练习 17》</strong>
@@ -70,25 +70,25 @@
 
             <label class="field">
               <span>艺术家姓名</span>
-              <input id="artistName" name="artistName" autocomplete="name" value="林若澄" required />
+              <input id="artistName" name="artistName" type="text" autocomplete="name" value="林若澄" aria-describedby="artistError" required>
               <small class="error-text" id="artistError"></small>
             </label>
 
             <label class="field">
               <span>作品名称</span>
-              <input id="workName" name="workName" value="未命名练习 17" required />
+              <input id="workName" name="workName" type="text" value="未命名练习 17" aria-describedby="workError" required>
               <small class="error-text" id="workError"></small>
             </label>
 
             <div class="field-row">
               <label class="field">
                 <span>当前报价</span>
-                <input id="price" name="price" inputmode="numeric" value="18600" required />
+                <input id="price" name="price" type="text" inputmode="numeric" value="18600" aria-describedby="priceError" required>
                 <small class="error-text" id="priceError"></small>
               </label>
               <label class="field">
                 <span>预算上限</span>
-                <input id="budget" name="budget" inputmode="numeric" value="15000" required />
+                <input id="budget" name="budget" type="text" inputmode="numeric" value="15000" aria-describedby="budgetError" required>
                 <small class="error-text" id="budgetError"></small>
               </label>
             </div>
@@ -105,9 +105,9 @@
 
             <fieldset class="intent-group">
               <legend>这次你最担心什么</legend>
-              <label><input type="radio" name="intent" value="price" checked /> 价格是不是虚高</label>
-              <label><input type="radio" name="intent" value="quality" /> 这是不是代表作</label>
-              <label><input type="radio" name="intent" value="risk" /> 以后会不会后悔</label>
+              <label><input type="radio" name="intent" value="price" checked> 价格是不是虚高</label>
+              <label><input type="radio" name="intent" value="quality"> 这是不是代表作</label>
+              <label><input type="radio" name="intent" value="risk"> 以后会不会后悔</label>
             </fieldset>
 
             <button class="primary-action" type="submit">
@@ -132,7 +132,7 @@
                 <span class="status-label">购买建议</span>
                 <strong id="verdictText">观望，除非价格低于 ¥15,000</strong>
               </div>
-              <div class="risk-meter" aria-label="风险等级中高">
+              <div class="risk-meter" role="group" aria-label="风险等级中高">
                 <span>风险</span>
                 <strong id="riskText">中高</strong>
               </div>
