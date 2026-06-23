@@ -75,10 +75,10 @@ function setReport(data) {
   document.querySelector("#riskText").textContent = data.risk;
   document.querySelector("#summaryTitle").textContent = data.summaryTitle;
   document.querySelector("#summaryBody").textContent = data.summaryBody;
-  document.querySelector("#scorePrice").textContent = data.scorePrice;
-  document.querySelector("#scoreTrust").textContent = data.scoreTrust;
-  document.querySelector("#scoreWork").textContent = data.scoreWork;
-  document.querySelector("#scoreLong").textContent = data.scoreLong;
+  document.querySelector("#scorePrice").textContent = String(data.scorePrice);
+  document.querySelector("#scoreTrust").textContent = String(data.scoreTrust);
+  document.querySelector("#scoreWork").textContent = String(data.scoreWork);
+  document.querySelector("#scoreLong").textContent = String(data.scoreLong);
 }
 
 function showError(id, message) {
@@ -133,16 +133,16 @@ form.addEventListener("submit", (event) => {
       : `观望，除非价格低于 ¥${budget.toLocaleString("zh-CN")}`;
   const risk = price > budget * 1.25 ? "中高" : price > budget ? "中" : "中低";
 
-	setReport({
-	    verdict: recommendation,
-	    risk,
-	    summaryTitle: `${artistName}可以关注，但这件作品要按价格谈。`,
-	    summaryBody: `《${workName}》的报价为 ¥${price.toLocaleString("zh-CN")}，你的预算上限是 ¥${budget.toLocaleString("zh-CN")}。当前判断建议先确认成交记录、作品证书和同系列延续性，再决定是否出价。`,
-	    scorePrice: priceScore,
-	    scoreTrust: trustScore,
-	    scoreWork: workScore,
-	    scoreLong: longScore,
-	  });
+  setReport({
+    verdict: recommendation,
+    risk,
+    summaryTitle: `${artistName}可以关注，但这件作品要按价格谈。`,
+    summaryBody: `《${workName}》的报价为 ¥${price.toLocaleString("zh-CN")}，你的预算上限是 ¥${budget.toLocaleString("zh-CN")}。当前判断建议先确认成交记录、作品证书和同系列延续性，再决定是否出价。`,
+    scorePrice: priceScore,
+    scoreTrust: trustScore,
+    scoreWork: workScore,
+    scoreLong: longScore,
+  });
 
   document.querySelector("#report").scrollIntoView({ behavior: "smooth", block: "start" });
 });
