@@ -59,11 +59,11 @@ const form = document.querySelector("#intakeForm");
 const resetButton = document.querySelector("#resetReport");
 
 const defaults = {
-  verdict: "观望，除非价格低于 ¥15,000",
+  verdict: "先补信息，再决定是否付款",
   risk: "中高",
-  summaryTitle: "履历有基础，报价需要再压。",
+  summaryTitle: "喜欢不冲突，但资料还要补。",
   summaryBody:
-    "这位青年艺术家的作品语言正在形成，但当前报价高于你的预算上限。若卖方不能补充同系列成交记录和展览证明，建议先观望。",
+    "这位青年艺术家的公开履历有基础，但当前报价高于你的预算上限。若卖方不能补充同系列价格区间、证书和来源说明，建议先把信息问完整。",
   scorePrice: 58,
   scoreTrust: 72,
   scoreWork: 64,
@@ -129,15 +129,15 @@ form.addEventListener("submit", (event) => {
   const longScore = trustScore > 70 ? 77 : 69;
   const recommendation =
     price <= budget
-      ? `可以进入谈价，目标成交价控制在 ¥${Math.round(price * 0.92).toLocaleString("zh-CN")} 左右`
-      : `观望，除非价格低于 ¥${budget.toLocaleString("zh-CN")}`;
+      ? `信息较完整后，再决定是否付款`
+      : `先补信息，尤其确认报价为何高于 ¥${budget.toLocaleString("zh-CN")}`;
   const risk = price > budget * 1.25 ? "中高" : price > budget ? "中" : "中低";
 
   setReport({
     verdict: recommendation,
     risk,
-    summaryTitle: `${artistName}可以关注，但这件作品要按价格谈。`,
-    summaryBody: `《${workName}》的报价为 ¥${price.toLocaleString("zh-CN")}，你的预算上限是 ¥${budget.toLocaleString("zh-CN")}。当前判断建议先确认成交记录、作品证书和同系列延续性，再决定是否出价。`,
+    summaryTitle: "喜欢可以，但先把资料问清楚。",
+    summaryBody: `《${workName}》的报价为 ¥${price.toLocaleString("zh-CN")}，你的预算上限是 ¥${budget.toLocaleString("zh-CN")}。当前建议先确认价格区间、作品证书、来源说明和同系列延续性，再决定是否付款。`,
     scorePrice: priceScore,
     scoreTrust: trustScore,
     scoreWork: workScore,

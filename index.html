@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>观前卡 | 青年艺术作品购买前判断</title>
+    <title>观前卡 | 买画前信息核对</title>
     <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%231a1209"/><text x="32" y="43" text-anchor="middle" font-size="34" fill="%23fbf7ee">观</text></svg>'>
     <link rel="stylesheet" href="./styles.css">
   </head>
@@ -22,7 +22,7 @@
         <nav class="nav-list" aria-label="主要页面">
           <a class="nav-item active" href="#workspace">
             <span aria-hidden="true">⌁</span>
-            <span>购买判断</span>
+            <span>信息核对</span>
           </a>
           <a class="nav-item" href="#report">
             <span aria-hidden="true">◷</span>
@@ -36,19 +36,19 @@
 
         <div class="side-note">
           <p class="eyebrow">MVP v0.1</p>
-          <p>先验证 30 份真实购买前报告，再决定是否做完整小程序。</p>
+          <p>先验证真实买画前的信息核对场景，再决定是否做完整小程序。</p>
         </div>
       </aside>
 
       <main id="main-content" class="workspace">
-        <section id="workspace" class="decision-grid" aria-label="购买前判断工作台">
+        <section id="workspace" class="decision-grid" aria-label="买画前信息核对工作台">
           <div class="lead-panel">
             <div class="lead-copy">
-              <p class="eyebrow">给准备买作品的人</p>
-              <h1>先判断，再下手。</h1>
+              <p class="eyebrow">给准备买画的人</p>
+              <h1>喜欢可以，先问清楚。</h1>
               <p class="lead-text">
-                上传作品图、报价和艺术家资料，得到一张可解释的购买前判断卡：
-                买、砍价、观望，还是跳过。
+                上传作品图、报价和艺术家资料，得到一张信息核对卡：
+                报价怎么来、资料缺什么、下一步该问卖方什么。
               </p>
             </div>
 
@@ -65,7 +65,7 @@
           <form class="intake-panel" id="intakeForm" novalidate>
             <div class="panel-heading">
               <p class="eyebrow">提交资料</p>
-              <h2>购买前检查</h2>
+              <h2>买画前核对</h2>
             </div>
 
             <label class="field">
@@ -98,7 +98,7 @@
               <select id="source" name="source">
                 <option>艺术家本人</option>
                 <option selected>画廊推荐</option>
-                <option>朋友转让</option>
+                <option>朋友推荐</option>
                 <option>线上平台</option>
               </select>
             </label>
@@ -111,17 +111,17 @@
             </fieldset>
 
             <button class="primary-action" type="submit">
-              <span>生成判断卡</span>
+              <span>生成核对卡</span>
               <span aria-hidden="true">→</span>
             </button>
           </form>
         </section>
 
-        <section id="report" class="report-section" aria-label="购买前判断报告">
+        <section id="report" class="report-section" aria-label="买画前信息核对报告">
           <div class="report-header">
             <div>
               <p class="eyebrow">报告样张</p>
-              <h2>不是给艺术下结论，是帮一次购买做决定。</h2>
+              <h2>不是替你做决定，是把付款前的信息问完整。</h2>
             </div>
             <button class="secondary-action" id="resetReport" type="button">恢复样张</button>
           </div>
@@ -129,11 +129,11 @@
           <article class="report-card" aria-live="polite">
             <div class="verdict-strip">
               <div>
-                <span class="status-label">购买建议</span>
-                <strong id="verdictText">观望，除非价格低于 ¥15,000</strong>
+                <span class="status-label">核对结论</span>
+                <strong id="verdictText">先补信息，再决定是否付款</strong>
               </div>
-              <div class="risk-meter" role="group" aria-label="风险等级中高">
-                <span>风险</span>
+              <div class="risk-meter" role="group" aria-label="信息缺口中高">
+                <span>信息缺口</span>
                 <strong id="riskText">中高</strong>
               </div>
             </div>
@@ -141,27 +141,27 @@
             <div class="report-main">
               <div class="summary-block">
                 <p class="eyebrow">一句话判断</p>
-                <h3 id="summaryTitle">履历有基础，报价需要再压。</h3>
+                <h3 id="summaryTitle">喜欢不冲突，但资料还要补。</h3>
                 <p id="summaryBody">
-                  这位青年艺术家的作品语言正在形成，但当前报价高于你的预算上限。若卖方不能补充同系列成交记录和展览证明，建议先观望。
+                  这位青年艺术家的公开履历有基础，但当前报价高于你的预算上限。若卖方不能补充同系列价格区间、证书和来源说明，建议先把信息问完整。
                 </p>
               </div>
 
               <dl class="score-grid">
                 <div>
-                  <dt>价格合理性</dt>
+                  <dt>报价需追问</dt>
                   <dd><span id="scorePrice">58</span><small>/100</small></dd>
                 </div>
                 <div>
-                  <dt>艺术家可信度</dt>
+                  <dt>履历可核验</dt>
                   <dd><span id="scoreTrust">72</span><small>/100</small></dd>
                 </div>
                 <div>
-                  <dt>作品代表性</dt>
+                  <dt>系列清晰度</dt>
                   <dd><span id="scoreWork">64</span><small>/100</small></dd>
                 </div>
                 <div>
-                  <dt>长期关注价值</dt>
+                  <dt>信息完整度</dt>
                   <dd><span id="scoreLong">76</span><small>/100</small></dd>
                 </div>
               </dl>
@@ -169,17 +169,17 @@
 
             <div class="evidence-list" id="evidence">
               <div>
-                <p class="list-title">为什么</p>
+                <p class="list-title">为什么先别急着付款</p>
                 <ul>
-                  <li>报价超过用户预算上限，且缺少可核验的成交区间。</li>
-                  <li>艺术家履历有群展和驻留记录，但机构背书还不稳定。</li>
-                  <li>样例作品属于过渡系列，不一定是最能代表其语言的作品。</li>
+                  <li>报价超过用户预算上限，且缺少可核验的价格区间。</li>
+                  <li>艺术家履历有群展和驻留记录，但需要确认来源是否可靠。</li>
+                  <li>样例作品属于过渡系列，需要确认是否来自稳定创作脉络。</li>
                 </ul>
               </div>
               <div>
                 <p class="list-title">下一步问卖方</p>
                 <ul>
-                  <li>是否能提供同系列近一年成交记录。</li>
+                  <li>是否能提供同系列近期价格区间。</li>
                   <li>是否有作品证书、发票和来源说明。</li>
                   <li>是否能对比同尺寸、同阶段的其他作品。</li>
                 </ul>
@@ -190,6 +190,6 @@
       </main>
     </div>
 
-    <script src="./script.js?v=2e2ce69"></script>
+    <script src="./script.js?v=info-check-v1"></script>
   </body>
 </html>
